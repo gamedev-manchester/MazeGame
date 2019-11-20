@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class movement : MonoBehaviour
@@ -24,5 +25,12 @@ public class movement : MonoBehaviour
         
     }
 
-   
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("EndPoint"))
+        {
+            GameManager.Instance.EndLevel();
+        }
+    }
 }
